@@ -1,0 +1,63 @@
+/* Spoiler blocking styles */
+
+/* Hide elements during processing to prevent flash */
+.spoiler-processing {
+  opacity: 0.5;
+  transition: opacity 0.2s ease;
+}
+
+/* Blocked image styling - use CSS to force hide since JS may override src */
+.spoiler-image-blocked {
+  /* Make the actual image invisible */
+  opacity: 0 !important;
+  /* Placeholder will be shown via JS-injected sibling or background */
+}
+
+/* Blocked background styling */
+.spoiler-bg-blocked {
+  position: relative;
+}
+
+.spoiler-bg-blocked::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(26, 71, 42, 0.1);
+  pointer-events: none;
+}
+
+/* Disable hover effects on blocked elements */
+.spoiler-blocked {
+  pointer-events: auto !important;
+}
+
+.spoiler-blocked:hover {
+  transform: none !important;
+}
+
+/* Style for hidden text */
+.spoiler-text-hidden {
+  background-color: #333 !important;
+  color: #333 !important;
+  border-radius: 2px;
+  user-select: none;
+}
+
+/* Prevent tooltip-like hover effects */
+[data-original-title]:hover::after,
+[data-original-title]:hover::before {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+}
+
+/* Block common tooltip containers */
+.spoiler-blocked [class*="tooltip"],
+.spoiler-blocked [class*="popover"],
+.spoiler-blocked [class*="hover"] {
+  display: none !important;
+  visibility: hidden !important;
+}

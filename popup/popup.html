@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Football Spoiler Blocker</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Spoiler Blocker</h1>
+      <p class="subtitle">Hide match scores & results</p>
+    </header>
+
+    <section class="toggle-section">
+      <div class="toggle-row">
+        <span class="toggle-label">Enable on this site</span>
+        <label class="toggle-switch">
+          <input type="checkbox" id="siteToggle">
+          <span class="slider"></span>
+        </label>
+      </div>
+      <p id="currentSite" class="current-site"></p>
+    </section>
+
+    <section class="sites-section">
+      <h2>Managed Sites</h2>
+      <div class="add-site">
+        <input type="text" id="newSiteInput" placeholder="Enter domain (e.g., example.com)">
+        <button id="addSiteBtn" title="Add site">+</button>
+      </div>
+      <ul id="siteList" class="site-list"></ul>
+      <p id="emptyMessage" class="empty-message">No sites added yet</p>
+    </section>
+
+    <footer>
+      <button id="refreshBtn" class="refresh-btn">Refresh Page</button>
+    </footer>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
